@@ -1,6 +1,6 @@
 import React from "react";
-import { View, Text, StyleSheet, FlatList, Button, Alert } from "react-native";
-import globalStyles from "../styles/globalStyles";
+import { View, Text, StyleSheet, Button, Alert } from "react-native";
+import { globalStyles } from "../styles/global";
 
 const Details = ({ route, navigation }) => {
   const { computer } = route.params;

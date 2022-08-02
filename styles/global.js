@@ -12,4 +12,16 @@ export const globalStyles = StyleSheet.create({
     padding: 15,
     fontSize: 15,
   },
+
+  input: {
+    borderWidth: 1,
+    borderColor: "lightgray",
+    padding: 15,
+  },
 });
+
+export const globalImages = {
+  computers: {
+    latitude: require("../assets/splash.png"),
+  },
+};

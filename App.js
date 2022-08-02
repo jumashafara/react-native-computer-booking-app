@@ -9,9 +9,10 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 // custom components
 import Home from "./Screens/Home";
 import Details from "./Screens/Details";
+import Signup from "./Screens/Signup";
 
 // react-native components
-import { StyleSheet } from "react-native";
+import Login from "./Screens/Login";
 
 const HomeStack = createNativeStackNavigator();
 
@@ -65,15 +66,15 @@ const App = () => {
   return (
     <NavigationContainer>
       <HomeStack.Navigator screenOptions={headerOptions}>
-        <HomeStack.Screen name="Data Idea PC">
+        <HomeStack.Screen name="DataIdeaPC">
           {(props) => <Home {...props} computers={computers} />}
         </HomeStack.Screen>
         <HomeStack.Screen name="Details" component={Details} />
+        <HomeStack.Screen name="Login" component={Login} />
+        <HomeStack.Screen name="Signup" component={Signup} />
       </HomeStack.Navigator>
     </NavigationContainer>
   );
 };
-
-const styles = StyleSheet.create({});
 
 export default App;

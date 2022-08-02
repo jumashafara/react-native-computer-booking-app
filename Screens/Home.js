@@ -1,17 +1,37 @@
 // from react
 import React from "react";
-import { globalStyles } from "../styles/globalStyles";
+import { globalStyles, globalImages } from "../styles/global";
 
+// custom components
+import { loginButton, signUpButton } from "../components/Buttons";
+// inbuilt components
 import {
   View,
   Text,
   StyleSheet,
   FlatList,
   TouchableOpacity,
-  TextComponent,
+  Button,
 } from "react-native";
 
 const Home = ({ computers, navigation }) => {
+  const logged_in = false;
+  navigation.setOptions({
+    headerRight: () =>
+      logged_in ? (
+        <></>
+      ) : (
+        <View
+          style={{
+            display: "flex",
+            flexDirection: "row",
+          }}
+        >
+          <>{loginButton(navigation)}</>
+          <>{signUpButton(navigation)}</>
+        </View>
+      ),
+  });
   return (
     <View style={globalStyles.container}>
       <Text style={globalStyles.heading}>Available PCs</Text>
@@ -20,7 +40,11 @@ const Home = ({ computers, navigation }) => {
         renderItem={({ item }) => (
           <View>
             <TouchableOpacity
-              onPress={() => navigation.navigate("Details", { computer: item })}
+              onPress={() =>
+                navigation.navigate("Details", {
+                  computer: item,
+                })
+              }
             >
               <View style={styles.computerInfo}>
                 <Text style={styles.heading}>{item.name}</Text>
